@@ -25,8 +25,8 @@ export class AppComponent {
     tenureMonths = fromDate.month() > toDate.month() ? (12 - tenureMonths) : tenureMonths;
 
     const yearText = `${tenureYears > 0 ? tenureYears + ' Years' : ''}`
-    const monthText = `${tenureMonths > 0 ? tenureMonths + ' Months' : ''}`
+    const monthText = `${tenureMonths > 0 ? (yearText.length ? ', ' : '') + tenureMonths + ' Months' : ''}`
 
-    return `${yearText.length ? yearText + ', ' + monthText : monthText}`
+    return `${yearText.length ? yearText + monthText : monthText}`
   }
 }
