@@ -1,7 +1,7 @@
 body {
   font-family: 'Inter', sans-serif;
   color: $text-color-secondary;
-  background: url('/assets/images/mountain-background.jpg') fixed no-repeat;
+  background: url('/assets/images/resume-bg-green.jpg') center fixed no-repeat;
   background-size: cover;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
@@ -32,59 +32,71 @@ p {
 }
 
 .wrapper {
-  background: $theme-color;
+  background: transparent;
   max-width: 1146px;
-  margin: 0 auto;
-  //margin-top: 30px;
+  margin: 2rem auto;
   position: relative;
-  @include box-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+  display: flex;
+  gap: 2rem;
+}
+
+.section-divider {
+  border-color: $lighter-grey;
 }
 
 .sidebar-wrapper {
-  background: $theme-color;
-  position: absolute;
-  right: 0;
+  @apply bg-white bg-opacity-80 backdrop-blur-lg flex flex-col flex-shrink-0 rounded-2xl;
+
   width: 300px;
-  height: 100%;
+  height: auto;
   min-height: 800px;
-  color: #fff;
+  color: $text-color-secondary;
+  border: 1px solid $lighter-grey;
 
   a {
-    color: #fff;
+    color: $text-color;
   }
 
   .profile-container {
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.2);
-    text-align: center;
-    color: #fff;
+    @apply flex flex-col items-center gap-2 p-7 text-center;
+    color: $text-color-secondary;
   }
 
   .name {
+    line-height: 1;
     font-size: 32px;
     font-weight: 900;
-    margin-top: 0;
-    margin-bottom: 10px;
   }
 
   .tagline {
-    color: rgba(256, 256, 256, 0.6);
+    color: $heart;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 0;
     margin-bottom: 0;
   }
 
+  .education {
+    @apply flex flex-col gap-1;
+
+    span {
+      font-size: 0.75rem;
+      color: $text-color-secondary;
+    }
+  }
+
   .profile {
-    margin: 0 auto 15px;
-    height: 10rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-size: contain;
-    background-image: url('/assets/images/resume-headshot.png');
+    img {
+      height: 10rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      object-fit: contain;
+    }
   }
 
   .contact-list {
+    @apply flex flex-col gap-3;
+
     .svg-inline--fa {
       margin-right: 5px;
       font-size: 18px;
@@ -92,11 +104,7 @@ p {
     }
 
     li {
-      margin-bottom: 15px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+      @apply flex items-center gap-4;
     }
 
     .email {
@@ -107,15 +115,17 @@ p {
   }
 
   .container-block {
-    padding: 30px;
+    @apply flex flex-col gap-4 p-7;
+  }
+
+  .interests-container {
+    @apply gap-2;
   }
 
   .container-block-title {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 15px;
   }
 
   .degree {
@@ -134,7 +144,7 @@ p {
     }
 
     .meta {
-      color: rgba(256, 256, 256, 0.6);
+      color: $text-color-secondary;
       font-weight: 500;
       margin-bottom: 0px;
       margin-top: 0;
@@ -142,7 +152,7 @@ p {
     }
 
     .time {
-      color: rgba(256, 256, 256, 0.6);
+      color: $text-color-secondary;
       font-weight: 500;
       margin-bottom: 0px;
     }
@@ -150,7 +160,25 @@ p {
 
   .languages-container {
     .lang-desc {
-      color: rgba(256, 256, 256, 0.6);
+      color: $text-color-secondary;
+    }
+  }
+
+  .languages-table {
+    tr td {
+      padding: 0.5rem 0;
+
+      &:first-of-type {
+        font-weight: 700;
+      }
+    }
+    tr td img {
+      height: 0.75rem;
+      aspect-ratio: 1;
+      margin-right: 0.5rem;
+    }
+    tr td:last-child {
+      text-align: end;
     }
   }
 
@@ -167,112 +195,117 @@ p {
   }
 
   .interests-list {
-    margin-bottom: 0;
-
-    li {
-      margin-bottom: 10px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+    @apply flex items-center flex-wrap gap-1.5;
+    span {
+      @apply bg-transparent flex items-center p-2 leading-none rounded-lg text-xs;
+      color: $text-color;
+      border: 1px solid $lighter-grey;
     }
   }
 }
 
 .main-wrapper {
-  background: #fff;
-  padding: 60px;
-  padding-right: 360px;
+  @apply bg-white bg-opacity-80 backdrop-blur-lg rounded-2xl p-8;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-grow: 1;
+  border: 1px solid $lighter-grey;
 
   .summary, .details {
-    text-align: justify;
+    @apply flex flex-col gap-4 text-justify;
+
+    .intro {
+      color: $text-color-secondary;
+    }
   }
 
   .section-title {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: 500;
-    color: darken($heart, 10%);
+    color: $text-color;
     position: relative;
-    margin-top: 0;
-    margin-bottom: 20px;
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
 
     .icon-holder {
       width: 2rem;
       height: 2rem;
-      margin-right: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
       color: #fff;
       @include border-radius(50%);
-      background: darken($theme-color, 5%);
+      background: $heart;
       text-align: center;
       font-size: 16px;
-      position: relative;
-      top: -2px;
-      padding-top: 2px;
 
       .svg-inline--fa {
         font-size: 14px;
-        margin-top: 6px;
       }
     }
 
   }
 
+  .section-wrapper {
+    @apply flex flex-col gap-4;
+  }
+
   .section {
-    margin-bottom: 2.5rem;
+    @apply p-0 flex flex-col gap-6;
   }
 
   .experiences-section {
     .item {
-      margin-bottom: 30px;
+      @apply flex flex-col gap-4 bg-transparent p-6 rounded-2xl;
+      border: 1px solid $lighter-grey;
     }
   }
 
+  .meta {
+    @apply flex flex-col gap-1;
+  }
+
   .upper-row {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2px;
-    padding-bottom: 0.25rem;
+    @apply flex flex-wrap items-center gap-1 justify-between;
   }
 
   .job-title {
-    color: $text-color;
+    color: $heart;
     font-size: 1.25rem;
     margin-top: 0;
     margin-bottom: 0;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .job-area {
+    @apply uppercase leading-none;
     color: darken($theme-color, 5%);
     font-size: 1rem;
-    margin-top: 0;
-    margin-bottom: 0;
     font-weight: 700;
   }
 
   .job-project {
     color: $theme-color;
     font-size: 0.9rem;
-    margin-top: 0.25rem;
-    margin-bottom: 0;
+    line-height: 1;
     font-weight: 500;
   }
 
   .time {
-    position: absolute;
-    right: 0;
-    top: 0;
     color: $text-grey;
   }
 
+  .area {
+    @apply flex flex-col gap-2;
+  }
+
   .company {
-    margin-bottom: 10px;
     color: $text-grey;
   }
 
@@ -336,3 +369,4 @@ p {
   }
 
 }
+

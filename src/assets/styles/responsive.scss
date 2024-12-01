@@ -46,6 +46,12 @@
 
 }
 
+@media print {
+  body {
+    width: 28cm;
+    margin: 0;
+  }
+}
 
 
 

@@ -1,0 +1,11 @@
+.main-container {
+  @apply flex flex-wrap gap-4 p-6 bg-white rounded-2xl w-fit;
+}
+
+.content {
+  @apply flex flex-col gap-4 p-6;
+}
+
+.highlights {
+  @apply flex flex-col gap-4 p-6;
+}
